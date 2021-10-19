@@ -1,0 +1,23 @@
+<apex:page standardController="LeadPassenger__c" showHeader="false" tabStyle="LeadPassenger__c">
+
+    <apex:form >
+     <apex:pageBlock title="Passenger Details" >
+       
+         <apex:pageblockSection title="Personal Information">
+           <apex:inputField value="{!LeadPassenger__c.Name}"/>
+          <apex:inputField value="{!LeadPassenger__c.PassengerEmail__c}"/>
+             <apex:inputField value="{!LeadPassenger__c.PassengerPhone__c}"/>
+         </apex:pageblockSection>
+          <apex:pageBlockSection title="Flight Details">
+         <apex:inputField value="{!LeadPassenger__c.Flight__c}"/>
+           <apex:inputField value="{!LeadPassenger__c.FlightStatus__c}"/>
+              
+         </apex:pageBlockSection>
+             
+       
+         </apex:pageBlock>
+    
+    
+    </apex:form>    
+    
+</apex:page>

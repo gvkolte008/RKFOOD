@@ -1,0 +1,58 @@
+<aura:component controller="FlightController1" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <h1 style="color:Blue;"> <h2 style="text-align: center;"><b>Welcome to Kolte Flight Booking </b> </h2></h1>
+    
+    <aura:attribute name="PassengerName" type="String" />
+    <aura:attribute name="PhoneNumber" type="String" />
+    <aura:attribute name="Source" type="String" />
+    <aura:attribute name="Destination" type="String" />
+   <aura:attribute name="EmailId" type="String" />
+    <aura:attribute name="AddGuestPassenger" type="Boolean" />
+    <aura:attribute name="ReturnJourney" type="Boolean" />
+    <aura:attribute name="Flist" type="Flight1__c[]" />
+    <div>
+    
+        <lightning:input type="String" name="input1" label="Enter a Name" value="{!v.PassengerName}" />
+       <lightning:input type="Phone" name="input1" label="Enter Mobile Number" value="{!v.PhoneNumber}" />
+        <lightning:input type="String" name="input1" label="Enter a Source" value="{!v.Source}" />
+        <lightning:input type="String" name="input1" label="Enter a Destination" value="{!v.Destination}" />
+    </div>
+    
+    <Div>
+      <lightning:input type="email" label="Email" value="{!v.EmailId}"/> 
+        <ui:inputCheckbox aura:id="checkbox" label="AddGuest?" change="{!c.onCheck}"/>
+	<p><ui:outputText class="result" aura:id="checkResult" value="{!v.AddGuestPassenger}" /></p>
+	Passenger Wants to add guest:{!v.AddGuestPassenger}
+        
+        
+    </Div>
+    
+    <div>
+    
+     <lightning:button variant="brand" label="Search Flight" title="Search Flight" onclick="{! c.flightMethod }" />
+   
+         </div>
+
+    <aura:iteration items="{!v.Flist}" var="item">
+        <lightning:card footer="Card Footer" title="Serched Flights">
+        <aura:set attribute="actions">
+            <lightning:button label="BookNow" name="{!item.Id}" onclick="{! c.flightBooking}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+           Flight Id:{!item.Id} <br/>
+           Flight Name:{!item.Name} <br/>
+           FROM:{!item.Source__c}<br/>
+           TO:{!item.Destination__c}
+            
+        </p>
+    </lightning:card>
+        
+    </aura:iteration>
+    
+    
+   
+    
+    
+    
+    
+       
+</aura:component>

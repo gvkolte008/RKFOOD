@@ -1,0 +1,35 @@
+<apex:page standardController="Flight__c" showHeader="false">
+    
+    <apex:form >
+        
+        
+        
+   <apex:pageBlock title="Flight Details" tabStyle="Flight__c">
+       <apex:pageBlockSection title="Flight Name">
+        <apex:inputField value="{!Flight__c.Name}"/>
+        <apex:inputField value="{!Flight__c.Status__c}"/>
+        </apex:pageBlockSection>
+     <apex:pageBlockSection title="Departure Details">
+       <apex:inputField value="{!Flight__c.DeparatureDate__c}"/>
+         <apex:inputField value="{!Flight__c.ReturnDate__c}"/>
+       
+       </apex:pageBlockSection>   
+        <apex:pageBlockSection title="Source">
+       <apex:inputField value="{!Flight__c.Source__c}"/>
+       </apex:pageBlockSection>
+        <apex:pageBlockSection title="Destination">
+       <apex:inputField value="{!Flight__c.Destination__c}"/>
+       
+       </apex:pageBlockSection>
+       <apex:pageBlockSection title="Flight Attendant">
+     <apex:inputField value="{!Flight__c.FlightAttendant__c}"/>
+       </apex:pageBlockSection>
+       
+        <apex:commandButton action="{!Save}" value="Save"/>
+        </apex:pageBlock>
+        
+        
+       
+    </apex:form>
+
+</apex:page>

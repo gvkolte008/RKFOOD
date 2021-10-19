@@ -1,0 +1,20 @@
+<aura:component controller="MyLightningController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="firstName" type="String" />
+     <aura:attribute name="lastName" type="String" />
+    <aura:attribute name="DepartureDate" type="DateTime" />
+    
+        <aura:attribute name="Source" type="String" />
+    
+    <lightning:input type="String" value="{!v.firstName}" name="fName" label="Enter first Name" />
+    <lightning:input type="String" value="{!v.lastName}" name="lName" label="Enter first Name" />
+    <lightning:input type="DateTime" value="{!v.DepartureDate}" name="dDate" label="Enter Departure Date" />
+    <lightning:input type="String" value="{!v.Source}" name="source" label="Enter Source" />
+    
+    <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.callMymethod }" /> <br/>
+    
+    First Name: {!v.firstName} <br/>
+    Last Name: {!v.lastName} <br/>
+    Departure Date:{!v.DepartureDate}
+    
+    
+</aura:component>

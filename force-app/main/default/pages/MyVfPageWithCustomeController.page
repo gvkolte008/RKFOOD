@@ -1,0 +1,15 @@
+<apex:page controller="MyVfController">
+    <apex:form >
+    <apex:pageBlock title="Flight Details">
+        
+        <apex:pageBlockSection title="Flight Details">
+        <apex:inputText value="{!flightName}"/>
+        <apex:inputText value="{!Status}"/>
+        </apex:pageBlockSection>
+        
+        </apex:pageBlock>
+    
+    
+    </apex:form>
+    
+</apex:page>

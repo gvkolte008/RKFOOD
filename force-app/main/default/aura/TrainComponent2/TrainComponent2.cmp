@@ -1,0 +1,19 @@
+<aura:component Controller="TrainHandler" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="PassengerName" type="String" />
+  
+   <aura:attribute name="Passlist" type="Yatri__c"/>
+    <aura:attribute name="TraId" type="String" default="Null" />
+    <aura:attribute name="Age" type="Integer" />
+    
+   <aura:method name="createPas" action="{!c.createPasen}">
+   <aura:attribute name="tid" type="String" />
+   </aura:method>
+    
+             <div>
+                 <lightning:input type="String" label="Passenger Name" name='Name' value="{!v.PassengerName}"/>
+              </div>
+    Train Id:"{!v.TraId}"
+          <div>
+              <lightning:button variant="brand" label="Book Ticket" title="Book Ticket" onclick="{!c.createPasen}"/>
+             </div>
+</aura:component>

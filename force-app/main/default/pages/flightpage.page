@@ -1,0 +1,19 @@
+<apex:page standardController="LeadPassenger__c" showHeader="false">
+    
+    
+    <apex:form >
+        <apex:pageBlock title="Passenger Details" tabStyle="LeadPassenger__c">
+        
+        <apex:pageBlockSection title="Personal Details">
+        
+        <apex:inputField value="{!LeadPassenger__c.Name}"/>/>
+        
+        </apex:pageBlockSection>
+    
+        
+        </apex:pageBlock>
+    
+    
+    </apex:form>
+    
+</apex:page>

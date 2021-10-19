@@ -1,0 +1,56 @@
+<aura:component Controller="TrainHandler" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+     <aura:attribute name='Source' type='String'/>
+    <aura:attribute name='Destination' type='String'/>
+    <aura:attribute name='DepartureDate' type='Date'/>
+    <aura:attribute name='TrainList' type='Train__c'/>
+    <aura:attribute name='TrainsAvailable' type='Integer'/>
+    <aura:attribute name="book" type="Boolean" default="false"/>
+    
+            <div>
+                 <lightning:input type="String" label="Source" name='Source' value="{!v.Source}"/>
+                 <lightning:input type="String" label="Destination" name='Destination' value="{!v.Destination}"/>
+                  <lightning:input type="date" name="input1" label="Enter a date" value="{!v.DepartureDate}" />  
+             </div>
+    
+  <div>
+  <lightning:button variant="brand" label="Find Train" title="Find Train" onclick="{!c.findTrain}"/>
+      
+     </div>
+     
+   <div class="slds-grid slds-gutters">
+<div class="slds-col">
+<span>
+    <p class="change"><b>Trains Available Count:{!v.TrainsAvailable} </b> </p>
+              
+    <aura:iteration items="{!v.TrainList}" var="item">   
+       <lightning:card footer="Indian Railways" title="Available Trains">
+              <aura:set attribute="actions">
+            <lightning:button label="Book Now" name="{!item.Id}" onclick="{!c.bookTrain}"/>
+        </aura:set>
+      <p class="slds-p-horizontal_small">
+            Train No:{!item.Train_No__c}<br/>
+            Train Name:{!item.Name}<br/>
+            From:{!item.Start_Station__c}<br/>
+            Destination:{!item.Destination__c}
+       </p>
+    </lightning:card> 
+    </aura:iteration> </span>
+</div>
+<div class="slds-col">
+<span>
+     <aura:if isTrue="{!v.book}">
+                   <c:TrainComponent2 TraId="" aura:Id='trainCmp'/>           
+             <aura:set attribute="else">
+        You can’t edit this.
+         </aura:set>
+     </aura:if>
+</span>
+       </div>
+<div class="slds-col">
+<span>3</span>
+</div>
+</div>  
+    
+             
+
+</aura:component>

@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="City" type="List" default="[
+        {'label': 'Nagpur', 'value': 'Nagpur'},
+        {'label': 'Pune', 'value': 'Pune.'},
+        {'label': 'Nasik', 'value': 'Nasik.'},
+        {'label': 'Dr.', 'value': 'Dr.'},
+        {'label': 'Prof.', 'value': 'Prof.'},
+    ]"/>
+    <div>
+        <lightning:inputName
+            label="Default Input Name Field"
+            firstName="John"
+            middleName="Middleton"
+            lastName="Doe"
+            informalName="Jo"
+            suffix="The 3rd"
+            salutation="Mr."
+            options="{!v.City}"
+        />
+    </div>
+</aura:component>

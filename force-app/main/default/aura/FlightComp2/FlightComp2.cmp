@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="Name" type="String" />
+    <aura:attribute name="PhoneNumber" type="String" />
+    <aura:attribute name="EmailID" type="String" />
+     <aura:attribute name="AddGuestPassenger" type="Boolean" default="False"/>
+    
+    <Div >
+        
+        <lightning:input type="String" value="{!v.Name}" name="name" label="Enter Passenger Name" />
+         <lightning:input type="String" value="{!v.PhoneNumber}" name="Phone" label="MobileNo" />
+        <lightning:input type="String" value="{!v.EmailID}" name="Email" label="Email Id" />
+            
+	<ui:inputCheckbox aura:id="checkbox" label="AddGuestPassenger?" change="{!c.onCheck}"/>
+	
+    </Div>
+</aura:component>

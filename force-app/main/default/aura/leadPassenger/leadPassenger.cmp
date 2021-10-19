@@ -1,0 +1,44 @@
+<aura:component controller ="leadPassengerController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="Firstname" type="String"/>
+    <aura:attribute name="Source" type="String"/>
+    <aura:attribute name="Destination" type="String"/>
+    <aura:attribute name="DepartureDate" type="DateTime"/>
+<aura:attribute name="Flist" type="Flight__c"/>
+
+    
+    <html>
+<body style="background-color:powderblue;">
+
+<h1>
+<b>  FLIGHT BOOKING</b>      
+    </h1> 
+</body>
+</html>
+
+     
+    <Div>
+       <lightning:input type="String" value="{!v.Firstname}" name="Fname" label="Enter a First Name"/> 
+        <lightning:input type="String" value="{!v.Source}" name="Fname" label="Enter Source"/> 
+        <lightning:input type="String" value="{!v.Destination}" name="Fname" label="Enter Destination"/> 
+        <lightning:input type="DateTime" value="{!v.DepartureDate}" name="Fname" label="Enter a Date"/> 
+     </Div>
+    
+    <lightning:button variant="Brand" label="Search" title="Search" onclick="{!c.callControllerMethod }"/>
+    
+    <Div>
+        <table>
+           <tr>
+               <th>Id </th>
+               <th>Name</th>
+            </tr>
+             <aura:iteration items="{!v.Flist}" var="item">
+               <tr>
+               <th>{!item.Id} </th>
+               <th>{!item.Name}</th>
+            </tr>       
+    </aura:iteration>
+        </table>
+       
+    </Div>
+    
+</aura:component>

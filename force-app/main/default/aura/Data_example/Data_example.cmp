@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="record" type="object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="simpleRecord" type="object"/>
+    <aura:attribute name="error" type="String"/>
+    
+    
+    <force:recordData recordId="{!v.recordId}" 
+                     mode="EDIT" 
+                     layoutType="FULL" 
+                     targetRecord="{!v.record}" 
+                    fields="Name,Phone,Industry" 
+                     targetFields="{!v.simpleRecord}"
+                     targetError="{!v.error}"/>
+    <lightning:card footer="Ganesh" title="Account Detail">
+             <p class="slds-p-horizontal_small">
+                <lightning:formattedText title="Name" value="{!v.simpleRecord.Name}" />
+             </p>
+             <p class="slds-p-horizontal_small">
+                <lightning:formattedText title="Phone" value="{!v.simpleRecord.Phone}" />
+             </p>
+              <p class="slds-p-horizontal_small">
+                <lightning:formattedText title="Industry" value="{!v.simpleRecord.Industry}" />
+             </p>
+    </lightning:card>
+    
+</aura:component>
